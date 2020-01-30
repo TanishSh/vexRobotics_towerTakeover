@@ -18,8 +18,10 @@ int quadratic(int move){
 
 void move(){
      //variables for moving forward and back, and turning
-    int power = master.get_analog(ANALOG_LEFT_Y);
-    int turn = master.get_analog(ANALOG_RIGHT_X);
+    int power = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y);
+    int turn = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X);
+    int power = quadratic(power);
+    int turn = quadratic(turn);
     //assigning the variables to each side of the robot
     int left = power + turn;
     int right = power - turn;

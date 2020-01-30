@@ -81,12 +81,11 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-
-	while (opcontrol) {
+	while (true) {
 		//drive train function code
 		move();
 		//intake function code
-		intakeMove(1);
+		setIntake();
 		//angle adjuster function code
 		angleAdjuster();
 		//10ms delay
