@@ -2,6 +2,9 @@
 #include "globals.hpp"
 #include "drive.h"
 
+int assignPower = 0;
+int assignTurn = 0;
+
 //quadratic function
 int quadratic(int move){
   if(move > 0){
@@ -19,10 +22,10 @@ int quadratic(int move){
 //cubic function
 int cubic(int move){
   if(move > 0){
-    return(move*move*move/127*127);
+    return int(move*move*move/127*127);
   }
   else if (move < 0){
-    return (move*move*move/127*127);
+    return int(move*move*move/127*127);
   }
   else{
     return 0;
@@ -33,34 +36,32 @@ void move(){
      //variables for moving forward and back, and turning
     int power = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y);
     int turn = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X);
-    power = cubic(power);
-    turn = cubic(turn);
-    //assigning the variables to each side of the robot
-    int left = power + turn;
-    int right = power - turn;
-    //having a cubic cruve for the values of the variables
-    cubic(left);
-    cubic(right);
-    //initial values for each left and right side motors of the robot
-    int assignLeft = 0;
-    int assignRight = 0;
-   
-    if(left > assignLeft){
-      assignLeft = assignLeft + 10;
-    } else if(left < assignLeft){
-      assignLeft = assignLeft - 10;
-    } else if(right > assignRight){
-      assignRight = assignRight + 10;
-    } else if (right < assignRight){
-      assignRight = assignRight - 10;
+    if(power > assignPower){
+      assignPower = assignPower + 10;
+    } else if(power < assignPower){
+      assignPower = assignPower - 10;
+    } else if(turn > assignTurn){
+      assignTurn = assignTurn + 10;
+    } else if (turn < assignTurn){
+      assignTurn = assignTurn - 10;
     }
     else{
-      assignLeft = assignLeft;
-      assignRight = assignRight;
+      assignPower = assignPower;
+      assignTurn = assignTurn;
     }
+    power = cubic(assignPower);
+    turn = cubic(assignTurn);
+    std::cout << turn;
+    //assigning the variables to each side of the robot
+    int left = assignPower + assignTurn;
+    int right = assignPower - assignTurn;
+    //having a cubic cruve for the values of the variables
+    //cubic(left);
+    //cubic(right);
+    //initial values for each left and right side motors of the robot
     //assigning values to the motors
-    leftFront.move(assignLeft);
-    leftBack.move(assignLeft);
-    rightFront.move(assignRight);
-    rightBack.move(assignRight);
+    leftFront.move(left);
+    leftBack.move(left);
+    rightFront.move(right);
+    rightBack.move(left);
   }
