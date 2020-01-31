@@ -44,24 +44,23 @@ void move(){
     //initial values for each left and right side motors of the robot
     int assignLeft = 0;
     int assignRight = 0;
-    while((assignLeft > left || assignRight > right) || (assignLeft < left || assignRight < right)){
-      if(left > assignLeft){
-        assignLeft = assignLeft + 10;
-      } else if(left < assignLeft){
-        assignLeft = assignLeft - 10;
-      } else if(right > assignRight){
-        assignRight = assignRight + 10;
-      } else if (right < assignRight){
-        assignRight = assignRight - 10;
-      }
-      else{
-        assignLeft = assignLeft;
-        assignRight = assignRight;
-      }
-      //assigning values to the motors
-      leftFront.move(assignLeft);
-      leftBack.move(assignLeft);
-      rightFront.move(assignRight);
-      rightBack.move(assignRight);
+   
+    if(left > assignLeft){
+      assignLeft = assignLeft + 10;
+    } else if(left < assignLeft){
+      assignLeft = assignLeft - 10;
+    } else if(right > assignRight){
+      assignRight = assignRight + 10;
+    } else if (right < assignRight){
+      assignRight = assignRight - 10;
     }
-}
+    else{
+      assignLeft = assignLeft;
+      assignRight = assignRight;
+    }
+    //assigning values to the motors
+    leftFront.move(assignLeft);
+    leftBack.move(assignLeft);
+    rightFront.move(assignRight);
+    rightBack.move(assignRight);
+  }
