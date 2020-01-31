@@ -6,7 +6,11 @@
 #ifndef VEXROBOT_AUTON_H
 #define VEXROBOT_AUTON_H
 
-void routine();
+void blueRow();
+void blueTower();
+void redRow();
+void redTower();
+void autonTest();
 void forward(double);
 void reverse(double);
 void rotateCW(double);

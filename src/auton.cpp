@@ -41,13 +41,20 @@ void reverse(double distance) {
     }
 }
 
-void routine() {
+void autonTest() {
     forward(12);
     reverse(12);
     rotateCCW(90);
     rotateCW(90);
 }
 
+void blueRow() {
+    forward(40);
+
+    rotateCCW(158);
+    forward(43.86);
+}
+
 double distanceCalc(double input) {
-    return (12.56 / input) / 900;
+    return (input / 12.56) * 900;
 }
