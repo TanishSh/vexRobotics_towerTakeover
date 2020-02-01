@@ -85,7 +85,7 @@ void opcontrol() {
 		//drive train function code
 		move();
 		//intake function code
-		setIntake();
+		intakeMove();
 		//angle adjuster function code
 		angleAdjuster();
 		//10ms delay
