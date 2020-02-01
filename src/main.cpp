@@ -52,7 +52,7 @@ void disabled() {}
  */
 void competition_initialize() {
 	pros::lcd::set_text(1, "SET ROBOT STATIONARY TO CALIBRATE GYRO");
-	pros::ADIGyro(1)
+	pros::ADIGyro(1);
 }
 
 /**
@@ -88,7 +88,12 @@ void opcontrol() {
 		//drive train function code
 		move();
 		//intake function code
-		setIntake();
+		if (master.get_digital(DIGITAL_R2)) {
+			intakeON;
+		}
+		if (master.get_digital(DIGITAL_R1)) {
+			intakeOFF;
+		}
 		//angle adjuster function code
 		angleAdjuster();
 		//10ms delay

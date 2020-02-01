@@ -2,14 +2,16 @@
 #include "globals.hpp"
 #include "intake.h"
 
-void intakeMove(int power) {
-  leftIntake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  rightIntake.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-  leftIntake.move(-power);
-  rightIntake.move(-power);
+void intakeON() {
+  leftIntake.set_brake_mode(MOTOR_BRAKE_HOLD);
+  rightIntake.set_brake_mode(MOTOR_BRAKE_HOLD);
+  leftIntake.move(-127);
+  rightIntake.move(-127);
 }
 
-void setIntake(){
-  int intakePower = 105 * (master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_R1) - master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_R2));
-  intakeMove(intakePower);
+void intakeOFF() {
+  leftIntake.set_brake_mode(MOTOR_BRAKE_HOLD);
+  rightIntake.set_brake_mode(MOTOR_BRAKE_HOLD);
+  leftIntake.move(0);
+  rightIntake.move(0);
 }

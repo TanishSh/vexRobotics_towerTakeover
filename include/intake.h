@@ -1,8 +1,8 @@
 #ifndef INTAKE_H
 #define INTAKE_H
 
-void intakeMove(int power);
+void intakeON();
 
-void setIntake();
+void intakeOFF();
 
 #endif
