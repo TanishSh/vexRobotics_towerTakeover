@@ -2,7 +2,7 @@
 #include "auton.h"
 #include "main.h"
 #include "globals.hpp"
-#include "auton.h"
+#include "intake.h"
 
 void rotateCW(double goal) {
     while (goal < gyro.get_value()) {
@@ -39,12 +39,14 @@ void autonTest() {
 }
 
 void blueRow() {
+    intakeON(90);
     forward(40, 88);
     pros::delay(1000);
     rotateCCW(158);
     pros::delay(1000);
     forward(43.86, 88);
     pros::delay(1000);
+    intakeON(-50);
     tilter.move_relative(666, 90);
     pros::delay(2000);
     forward(-10, 50);
@@ -55,19 +57,21 @@ void blueTower() {
 }
 
 void redRow() {
+    intakeON(90);
     forward(40, 88);
     pros::delay(1000);
     rotateCW(158);
     pros::delay(1000);
     forward(43.86, 88);
     pros::delay(1000);
+    intakeON(-50);
     tilter.move_relative(666, 90);
     pros::delay(2000);
     forward(-10, 50);
 }
 
 void redTower() {
-    
+
 }
 
 double distanceCalc(double input) {

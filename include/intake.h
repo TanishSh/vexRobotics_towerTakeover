@@ -1,7 +1,7 @@
 #ifndef INTAKE_H
 #define INTAKE_H
 
-void intakeON();
+void intakeON(int);
 
 void intakeOFF();
 

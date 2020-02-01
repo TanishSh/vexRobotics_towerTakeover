@@ -2,11 +2,11 @@
 #include "globals.hpp"
 #include "intake.h"
 
-void intakeON() {
+void intakeON(int speed) {
   leftIntake.set_brake_mode(MOTOR_BRAKE_HOLD);
   rightIntake.set_brake_mode(MOTOR_BRAKE_HOLD);
-  leftIntake.move(-127);
-  rightIntake.move(-127);
+  leftIntake.move(speed);
+  rightIntake.move(speed);
 }
 
 void intakeOFF() {
