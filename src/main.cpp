@@ -4,6 +4,7 @@
 #include "drive.h"
 #include "globals.hpp"
 #include "auton.h"
+#include "arm.h"
 
 /**
  * A callback function for LLEMU's center button.
@@ -89,13 +90,15 @@ void opcontrol() {
 		move();
 		//intake function code
 		if (master.get_digital(DIGITAL_R2)) {
-			intakeON;
+			intakeON(90);
 		}
 		if (master.get_digital(DIGITAL_R1)) {
-			intakeOFF;
+			intakeOFF();
 		}
 		//angle adjuster function code
 		angleAdjuster();
+
+		armMove();
 		//10ms delay
 		pros::delay(10);
 	}

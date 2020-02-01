@@ -63,5 +63,5 @@ void move(){
     leftFront.move(left);
     leftBack.move(left);
     rightFront.move(right);
-    rightBack.move(left);
+    rightBack.move(right);
   }
