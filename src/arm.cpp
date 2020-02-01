@@ -2,8 +2,28 @@
 #include "globals.hpp"
 #include "arm.h"
 
-void armMove(){
+void armSetup(){
     arm.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-    int move = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_Y);
-    arm.move(move);
+}
+void armUp(int speed){
+    armSetup();
+    arm.move(speed);
+}
+void armDown(int speed){
+    armSetup();
+    arm.move(-speed);
+}
+void armOFF(){
+    armSetup();
+    arm.move(0);
+}
+void armMove(){
+    if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_R1)){
+        armUp(100);
+    } else if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_R2)){
+        armDown(100);
+    }
+    else{
+        armOFF();
+    }
 }

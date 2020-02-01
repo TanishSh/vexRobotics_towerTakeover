@@ -4,6 +4,7 @@
 #include "drive.h"
 #include "globals.hpp"
 #include "auton.h"
+#include "arm.h"
 
 /**
  * A callback function for LLEMU's center button.
@@ -88,6 +89,8 @@ void opcontrol() {
 		intakeMove();
 		//angle adjuster function code
 		tilterMove();
+		//arm code
+		armMove();
 		//10ms delay
 		pros::delay(10);
 	}
