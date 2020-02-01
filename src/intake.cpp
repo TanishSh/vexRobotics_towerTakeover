@@ -22,13 +22,13 @@ void intakeSetup(){
 }
 void intakeIntake(int speed){
     intakeSetup();
-    leftIntake.move(speed);
-    rightIntake.move(speed);
+    leftIntake.move(-speed);
+    rightIntake.move(-speed);
 }
 void intakeOutake(int speed){
   intakeSetup();
-  leftIntake.move(-speed);
-  rightIntake.move(-speed);
+  leftIntake.move(speed);
+  rightIntake.move(speed);
 }
 void intakeOFF(){
   intakeSetup();
@@ -37,9 +37,9 @@ void intakeOFF(){
 }
 void intakeMove(){
   if (master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_X)){
-    intakeIntake(95);
+    intakeIntake(100);
   } else if (master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_B)){
-    intakeOutake(95);
+    intakeOutake(100);
   }
   else{
     intakeOFF();

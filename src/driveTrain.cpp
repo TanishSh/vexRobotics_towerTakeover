@@ -36,31 +36,31 @@ void move(){
     int power = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y);
     int turn = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X);
     if(power > assignPower){
-      assignPower = assignPower + 10;
+      assignPower = assignPower + 20;
     } else if(power < assignPower){
-      assignPower = assignPower - 10;
+      assignPower = assignPower - 20;
     } else if(turn > assignTurn){
-      assignTurn = assignTurn + 10;
+      assignTurn = assignTurn + 20;
     } else if (turn < assignTurn){
-      assignTurn = assignTurn - 10;
+      assignTurn = assignTurn - 20;
     }
     else{
       assignPower = assignPower;
       assignTurn = assignTurn;
     }
-    power = quadratic(assignPower);
-    turn = quadratic(assignTurn);
+    //power = quadratic(assignPower);
+    //turn = quadratic(assignTurn);
     //std::cout << turn;
     //assigning the variables to each side of the robot
     int left = power + turn;
     int right = power - turn;
     //having a cubic cruve for the values of the variables
-    quadratic(left);
-    quadratic(right);
+    //quadratic(left);
+    //quadratic(right);
     //initial values for each left and right side motors of the robot
     //assigning values to the motors
     leftFront.move(left);
     leftBack.move(left);
     rightFront.move(right);
-    rightBack.move(left);
+    rightBack.move(right);
   }
