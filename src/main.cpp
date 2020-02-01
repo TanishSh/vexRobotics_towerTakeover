@@ -87,7 +87,7 @@ void opcontrol() {
 		//intake function code
 		intakeMove();
 		//angle adjuster function code
-		angleAdjuster();
+		tilterMove();
 		//10ms delay
 		pros::delay(10);
 	}
