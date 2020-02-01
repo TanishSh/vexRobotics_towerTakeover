@@ -1,6 +1,3 @@
-/*
-Made by: TanishSh 29/01/2020
-*/
 #include "main.h"
 #include "globals.hpp"
 //motors
@@ -13,7 +10,7 @@ pros::Motor rightBack(18,MOTOR_GEARSET_18,true,MOTOR_ENCODER_COUNTS);
 pros::Motor leftIntake(20,MOTOR_GEARSET_18, true,MOTOR_ENCODER_COUNTS);
 pros::Motor rightIntake(3,MOTOR_GEARSET_18, false,MOTOR_ENCODER_COUNTS);
 // arm motor
-pros::Motor arm(2, MOTOR_GEARSET_18, false, MOTOR_ENCODER_COUNTS);
+pros::Motor arm(8, MOTOR_GEARSET_18, false, MOTOR_ENCODER_COUNTS);
 // angleAdjuster motor
 pros::Motor tilter(15,MOTOR_GEARSET_36, false,MOTOR_ENCODER_COUNTS);
 //controller

@@ -32,7 +32,6 @@ int cubic(int move){
   }
 }
 void move(){
-    int initial = 0;
      //variables for moving forward and back, and turning
     int power = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y);
     int turn = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X);
@@ -49,15 +48,15 @@ void move(){
       assignPower = assignPower;
       assignTurn = assignTurn;
     }
-    power = cubic(assignPower);
-    turn = cubic(assignTurn);
-    std::cout << turn;
+    power = quadratic(assignPower);
+    turn = quadratic(assignTurn);
+    //std::cout << turn;
     //assigning the variables to each side of the robot
-    int left = assignPower + assignTurn;
-    int right = assignPower - assignTurn;
+    int left = power + turn;
+    int right = power - turn;
     //having a cubic cruve for the values of the variables
-    //cubic(left);
-    //cubic(right);
+    quadratic(left);
+    quadratic(right);
     //initial values for each left and right side motors of the robot
     //assigning values to the motors
     leftFront.move(left);
