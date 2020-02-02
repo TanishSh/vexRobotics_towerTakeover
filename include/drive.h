@@ -3,6 +3,8 @@
 
 int quadratic(int move);
 int cubic(int move);
+int slewRateForward(int value, int initial);
+int slewRateTurn(int value, int initial);
 
 void move();
 

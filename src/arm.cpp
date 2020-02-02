@@ -19,9 +19,9 @@ void armOFF(){
 }
 void armMove(){
     if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_R1)){
-        armUp(70);
+        armUp(65);
     } else if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_R2)){
-        armDown(70);
+        armDown(65);
     }
     else{
         armOFF();
