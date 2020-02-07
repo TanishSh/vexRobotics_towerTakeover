@@ -10,6 +10,7 @@ void blueRow();
 void blueTower();
 void redRow();
 void redTower();
+void oneCube();
 void autonTest();
 void forward(double, int);
 void rotateCW(double);

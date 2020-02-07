@@ -69,6 +69,7 @@ void competition_initialize() {
  */
 void autonomous() {
     //blueRow();
+	oneCube();
 }
 
 /**

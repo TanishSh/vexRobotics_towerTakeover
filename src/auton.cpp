@@ -3,6 +3,8 @@
 #include "main.h"
 #include "globals.hpp"
 #include "intake.h"
+#include "tilter.h"
+#include "arm.h"
 
 void rotateCW(double goal) {
     while (goal < gyro.get_value()) {
@@ -72,6 +74,12 @@ void redRow() {
 
 void redTower() {
 
+}
+
+void oneCube() {
+    forward(10, 80);
+    forward(-10, 80)
+    
 }
 
 double distanceCalc(double input) {
