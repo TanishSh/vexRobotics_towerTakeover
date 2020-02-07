@@ -45,6 +45,15 @@ int slewRateTurn(int value, int initial){
       return initial = initial;
     }
 }
+/*
+int setDrive(int leftMotors, int rightMotors){
+  return leftFront.move(leftMotors);
+  leftBack.move(leftMotors);
+  rightFront.move(rightMotors);
+  rightBack.move(rightMotors);
+}
+*/
+
 void move(){
      //variables for moving forward and back, and turning
     int power = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y);

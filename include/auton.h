@@ -6,12 +6,9 @@
 #ifndef VEXROBOT_AUTON_H
 #define VEXROBOT_AUTON_H
 
+void resetDriveEncoders();
+void move(double distance, int speed);
 void oneCube();
-void forward(double);
-//void reverse(double);
-//void rotateCW(double);
-//void rotateCCW(double);
-double distanceCalc(double);
-
+double distanceCalc(double input);
 
 #endif //VEXROBOT_AUTON_H
