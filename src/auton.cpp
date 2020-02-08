@@ -24,20 +24,36 @@ void move(double distance, int speed)  {
 
 void oneCube() {
     resetDriveEncoders();
-    move(11, 80);
+    move(23, 80);
     pros::delay(1500);
     move(-30,90);
     pros::delay(1500);
-    tilter.move_absolute(2700, 60);
+    tilter.move_relative(2700, 60);
     pros::delay(1500);
-    tilter.move_absolute(2700, 60);  
+    move(3, 200);
+    pros::delay(250);
+    move(-3, 200);
+    pros::delay(250);
+    tilter.move_relative(-2700, 60);  
 }
 
-void blueFourCube() {
+void fourCube() {
     resetDriveEncoders();
+    tilter.move_relative(2700, 60);
+    pros::delay(1500);
+    move(3, 200);
+    pros::delay(250);
+    move(-3, 200);
+    pros::delay(250);
+    tilter.move_relative(-2700, 60);
     intakeIntake(200);
     move(102, 80);
     pros::delay(500);
+    rotateCW(155);
+    pros::delay(2000);
+    move(102, 80);
+    pros::delay(3000);
+    tilter.move_absolute(2700, 60);
 }
 
 void rotateCW(double goal) {
