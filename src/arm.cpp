@@ -7,6 +7,9 @@ void armSetup(){
 }
 void armUp(int speed){
     armSetup();
+    if (tilter.get_position >= 0.6) {
+        tilter.move_absolute(0.6, 40);
+    }
     arm.move(speed);
 }
 void armDown(int speed){

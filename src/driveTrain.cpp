@@ -8,10 +8,10 @@ int assignTurn = 0;
 //quadratic function
 int quadratic(int move){
   if(move > 0){
-    return (move*move/127);
+    return (move*move/127)/0.5;
   }
   else if (move < 0){
-    return -(move*move/127);
+    return -(move*move/127)/0.5;
   }
   else{
     return 0;
@@ -21,7 +21,7 @@ int quadratic(int move){
 
 //cubic function
 int cubic(int move){
-  return int(move*move*move/127*127);
+  return int(move*move*move/127*127)/0.0009;
 }
 
 int slewRateForward(int value, int initial){
