@@ -7,11 +7,11 @@ void tilterSetup(){
 }
 void tilterForward(int speed){
     tilterSetup();
-    tilter.move(speed);
+    tilter.move_velocity(speed);
 }
 void tilterBackward(int speed){
     tilterSetup();
-    tilter.move(-speed);
+    tilter.move_velocity(-speed);
 }
 void tilterOFF(){
     tilterSetup();
@@ -19,9 +19,9 @@ void tilterOFF(){
 }
 void tilterMove(){
     if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_L1)){
-        tilterForward(40);
+        tilterForward(25);
     }else if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_L2)){
-        tilterBackward(40);
+        tilterBackward(25);
     }
     else{
         tilterOFF();

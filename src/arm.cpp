@@ -7,17 +7,14 @@ void armSetup(){
 }
 void armUp(int speed){
     armSetup();
-    if (tilter.get_position >= 0.6) {
-        tilter.move_absolute(0.6, 40);
-    }
-    arm.move(speed);
+    arm.move_velocity(speed);
 }
 void armDown(int speed){
     armSetup();
-    arm.move(-speed);
+    arm.move_velocity(-speed);
 }
 void armOFF(){
-    armSetup();
+    arm.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
     arm.move(0);
 }
 void armMove(){

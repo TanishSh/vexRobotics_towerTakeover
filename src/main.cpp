@@ -30,8 +30,9 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Team 4659B | Programmed by Tanish");
+	pros::lcd::set_text(1, "Team 4659B | Programmed by McQueen");
 	pros::lcd::register_btn1_cb(on_center_button);
+	pros::ADIGyro gyro(1);
 }
 
 /**
@@ -83,14 +84,24 @@ void autonomous() {
 void opcontrol() {
 	while (true) {
 		//drive train function code
-		move();
+		//move();
+		int power = master.get_analog(ANALOG_LEFT_Y);
+        int turn = master.get_analog(ANALOG_RIGHT_X);
+
+        int left = power + turn;
+        int right = power - turn;
+
+        leftFront.move(left);
+        leftBack.move(left);
+        rightFront.move(right);
+        rightBack.move(right);
 		//intake function code
 		intakeMove();
 		//angle adjuster function code
 		tilterMove();
 		//arm code
 		armMove();
-		//10ms delay
-		pros::delay(10);
+		//20ms delay
+		pros::delay(20);
 	}
 }

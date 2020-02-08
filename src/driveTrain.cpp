@@ -21,17 +21,17 @@ int quadratic(int move){
 
 //cubic function
 int cubic(int move){
-  return int(move*move*move/127*127)/0.0009;
+  return int((move*move*move)/(127*127));
 }
 
 int slewRateForward(int value, int initial){
     if(value > initial){
-      return initial = initial + 19;
+      return initial = initial + 10;
     }else if (value < initial){
-      return initial = initial - 19;
+      return initial = initial - 10;
     }
     else{
-      return initial = initial;
+      return initial = 0;
     }
 }
 
@@ -42,7 +42,7 @@ int slewRateTurn(int value, int initial){
       return initial = initial - 5;
     }
     else{
-      return initial = initial;
+      return initial = 0;
     }
 }
 /*
@@ -53,11 +53,11 @@ int setDrive(int leftMotors, int rightMotors){
   rightBack.move(rightMotors);
 }
 */
-
+/*
 void move(){
      //variables for moving forward and back, and turning
     int power = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_LEFT_Y);
-    int turn = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X);
+    int turn = master.get_analog(pros::controller_analog_e_t::E_CONTROLLER_ANALOG_RIGHT_X)/1.5;
     assignPower = slewRateForward(power, assignPower);
     assignTurn = slewRateTurn(turn, assignTurn);
     //assigning the variables to each side of the robot
@@ -79,3 +79,4 @@ void move(){
     pros::lcd::print(4, "left side motors val: %d", left);
     pros::lcd::print(5, "right side motors val: %d", right);
   }
+  */

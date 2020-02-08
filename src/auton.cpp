@@ -24,14 +24,38 @@ void move(double distance, int speed)  {
 
 void oneCube() {
     resetDriveEncoders();
-    move(20, 80);
+    move(11, 80);
     pros::delay(1500);
-    tilterForward(90);
-    pros::delay(2000);
-    tilterBackward(70);
-    pros::delay(2000);
-    tilterOFF();
-    move(-20,90);
+    move(-30,90);
+    pros::delay(1500);
+    tilter.move_absolute(2700, 60);
+    pros::delay(1500);
+    tilter.move_absolute(2700, 60);  
+}
+
+void blueFourCube() {
+    resetDriveEncoders();
+    intakeIntake(200);
+    move(102, 80);
+    pros::delay(500);
+}
+
+void rotateCW(double goal) {
+    while (goal < gyro.get_value()) {
+        leftFront.move(127);
+        leftBack.move(127);
+        rightFront.move(-127);
+        rightBack.move(-127);
+    }
+}
+
+void rotateCCW(double goal) {
+    while (goal < gyro.get_value()) {
+        leftFront.move(-127);
+        leftBack.move(-127);
+        rightFront.move(127);
+        rightBack.move(127);
+    }
 }
 
 double distanceCalc(double input) {
