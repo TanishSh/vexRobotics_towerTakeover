@@ -19,9 +19,9 @@ void tilterOFF(){
 }
 void tilterMove(){
     if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_L1)){
-        tilterForward(25);
+        tilterForward(15);
     }else if(master.get_digital(pros::controller_digital_e_t::E_CONTROLLER_DIGITAL_L2)){
-        tilterBackward(25);
+        tilterBackward(15);
     }
     else{
         tilterOFF();
